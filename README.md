@@ -33,24 +33,12 @@ Which will create a branch named jira123, and an MR titled WIP: JIRA-123: Add mo
 
 ---------
 
+globally ignore *.iml
 
-We're using Java from Homebrew, so installation locations will be custom
-ref: https://mkyong.com/java/how-to-install-java-on-mac-osx/#homebrew-install-java-8-on-macos
+git config --global core.excludesfile ~/.gitignore_global
+touch ~/.gitignore_global
+echo "*.iml" >> ~/.gitignore_global
 
-# Can't do this due to privileges:
-#sudo ln -sfn $HOME/.homebrew/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
-
-JAVAPREFIX_16="$(brew --prefix)/opt/openjdk@16"
-
-JAVAPREFIX_LATEST="$(brew --prefix)/opt/openjdk"
-
-# Switch between Java versions here
-# Useful ref: https://www.baeldung.com/maven-java-home-jdk-jre
-JAVAPREFIX="$JAVAPREFIX_LATEST"
-
-export JAVA_HOME="$JAVAPREFIX"
-
-export PATH="$JAVAPREFIX/bin:$PATH"
 
 ----------
 
